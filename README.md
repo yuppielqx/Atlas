@@ -98,6 +98,6 @@ python main.py --dataset metr-la --data_dir ./datasets \
 
 ## Outputs
 
-Every run writes to `<output_dir>/<run_name>/` (`--output_dir` defaults to `./output`). The main program evaluates the test set after training and saves `args.json` (the full command and configuration), `metrics.csv`, `results.json` (including MAE and RMSE), and `checkpoint.pt`. It also saves a training-curve figure. Use each run's `args.json` and checkpoint when reproducing a specific reported result.
+Every run writes to `<output_dir>/<run_name>/` (`--output_dir` defaults to `./output`). The main program evaluates the test set after training and saves `args.json` (the full command and configuration), `metrics.csv`, `results.json` (with `metrics.MAE` and `metrics.RMSE`), and `checkpoint.pt`. It also saves a training-curve figure. Use each run's `args.json` and checkpoint when reproducing a specific reported result.
 
-The standalone `test.py` entry point supports METR-LA checkpoints only. `reeval.py` is for re-evaluating saved single-feature runs; neither is needed to obtain the metrics from a new `main.py` run.
+For new experiments, read test metrics directly from `results.json`. The older `test.py` and `reeval.py` utilities are not required for the training workflow documented here.
